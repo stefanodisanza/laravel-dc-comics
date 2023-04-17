@@ -16,10 +16,10 @@ use App\Http\Controllers\ComicController;
 
 Route::get('/', [ComicController::class, 'index'])->name('comics.index');
 
-Route::get('/create', [ComicController::class, 'create'])->name('comics.create');
-Route::post('/store', [ComicController::class, 'store'])->name('comics.store');
+Route::get('comics.create', [ComicController::class, 'create'])->name('comics.create');
+Route::post('comics.store', [ComicController::class, 'store'])->name('comics.store');
 
-Route::get('/edit/{id}', [ComicController::class, 'edit'])->name('comics.edit');
-Route::put('/update/{id}', [ComicController::class, 'update'])->name('comics.update');
+Route::get('comics.edit/{id}', [ComicController::class, 'edit'])->name('comics.edit');
+Route::put('comics.update/{id}', [ComicController::class, 'update'])->name('comics.update');
 
 Route::get('/comics/{id}', [ComicController::class, 'show'])->name('comics.show');
