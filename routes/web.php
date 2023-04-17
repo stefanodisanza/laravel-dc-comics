@@ -14,11 +14,12 @@ use App\Http\Controllers\ComicController;
 |
 */
 
-Route::get('/', [ComicController::class, 'index']);
+Route::get('/', [ComicController::class, 'index'])->name('comics.index');
 
-Route::get('/create', [ComicController::class, 'create']);
-Route::post('/store', [ComicController::class, 'store']);
-Route::get('/edit/{id}', [ComicController::class, 'edit']);
-Route::put('/update/{id}', [ComicController::class, 'update']);
-Route::match(['post'], '/comics', [ComicController::class, 'store'])->name('comics.store');
-Route::post('/comics', [ComicController::class, 'store'])->name('comics.store');
+Route::get('/create', [ComicController::class, 'create'])->name('comics.create');
+Route::post('/store', [ComicController::class, 'store'])->name('comics.store');
+
+Route::get('/edit/{id}', [ComicController::class, 'edit'])->name('comics.edit');
+Route::put('/update/{id}', [ComicController::class, 'update'])->name('comics.update');
+
+Route::get('/comics/{id}', [ComicController::class, 'show'])->name('comics.show');
