@@ -1,3 +1,7 @@
+<head>
+  <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+</head>
+
 @extends('layouts.app')
 
 @section('content')
@@ -43,26 +47,23 @@
     </form>
   </div>
 
-  <table>
-    <tr>
-        <th>Title</th>
-        <th>Thumb</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Edit</th>
-        <th>Show</th>
-    </tr>
-    @foreach ($comics as $comic)
-    <tr>
-        <td>{{ $comic->title }}</td>
-        <td><img src="{{ $comic->thumb }}" alt="{{ $comic->title }} thumbnail"></td>
-        <td>{{ $comic->description }}</td>
-        <td>{{ $comic->price }}</td>
-        <td><a href="{{ route('comics.edit', ['id' => $comic->id]) }}">Edit</a></td>
-        <td><a href="{{ route('comics.show', ['id' => $comic->id]) }}">Show</a></td>
-    </tr>
-    @endforeach
-</table>
-
-
+  <div class="container mt-5">
+    <h2>Comics</h2>
+    <div class="row">
+      @foreach ($comics as $comic)
+      <div class="col-md-6">
+        <div class="card mb-3">
+          <img src="{{ $comic->thumb }}" class="card-img-top" alt="{{ $comic->title }} thumbnail">
+          <div class="card-body">
+            <h5 class="card-title">{{ $comic->title }}</h5>
+            <p class="card-text">{{ $comic->description }}</p>
+            <p class="card-text"><small class="text-muted">Price: {{ $comic->price }}</small></p>
+            <a href="{{ route('comics.edit', ['id' => $comic->id]) }}" class="btn btn-primary">Edit</a>
+            <a href="{{ route('comics.show', ['id' => $comic->id]) }}" class="btn btn-secondary">Show</a>
+          </div>
+        </div>
+      </div>
+      @endforeach
+    </div>
+  </div>
 @endsection
