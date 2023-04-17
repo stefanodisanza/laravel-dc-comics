@@ -15,3 +15,5 @@
     </div>
     <button type="submit">Update</button>
 </form>
+
+<a href="{{ route('comics.index') }}" class="btn btn-primary">Torna indietro</a>
