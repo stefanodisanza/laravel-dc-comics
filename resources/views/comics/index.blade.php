@@ -49,6 +49,7 @@
         <th>Thumb</th>
         <th>Description</th>
         <th>Price</th>
+        <th>Edit</th>
         <th>Show</th>
     </tr>
     @foreach ($comics as $comic)
@@ -57,9 +58,11 @@
         <td><img src="{{ $comic->thumb }}" alt="{{ $comic->title }} thumbnail"></td>
         <td>{{ $comic->description }}</td>
         <td>{{ $comic->price }}</td>
+        <td><a href="{{ route('comics.edit', ['id' => $comic->id]) }}">Edit</a></td>
         <td><a href="{{ route('comics.show', ['id' => $comic->id]) }}">Show</a></td>
     </tr>
-@endforeach
+    @endforeach
+</table>
 
-  </table>
+
 @endsection
