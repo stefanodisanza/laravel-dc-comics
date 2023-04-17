@@ -1,4 +1,5 @@
-<h1>Create a new comic</h1>
-<form>
-    <!-- da riempire -->
+<form method="POST" action="{{ route('comics.update', ['id' => $comic->id]) }}">
+    @csrf
+    @method('PUT')
+    <!-- Resto del codice della form -->
 </form>

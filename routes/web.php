@@ -14,8 +14,11 @@ use App\Http\Controllers\ComicController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/', [ComicController::class, 'index']);
+
+Route::get('/create', [ComicController::class, 'create']);
+Route::post('/store', [ComicController::class, 'store']);
+Route::get('/edit/{id}', [ComicController::class, 'edit']);
+Route::put('/update/{id}', [ComicController::class, 'update']);
+Route::match(['post'], '/comics', [ComicController::class, 'store'])->name('comics.store');
+Route::post('/comics', [ComicController::class, 'store'])->name('comics.store');
