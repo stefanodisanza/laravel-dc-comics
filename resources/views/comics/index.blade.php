@@ -1,11 +1,16 @@
 <head>
   <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
 </head>
-
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container mt-5">
+  @if(session('success'))
+    <div class="alert alert-success">
+      {{ session('success') }}
+    </div>
+  @endif
   <div class="row">
     <div class="col-md-6">
       <h2>Comics</h2>
@@ -31,5 +36,4 @@
     @endforeach
   </div>
 </div>
-
 @endsection
