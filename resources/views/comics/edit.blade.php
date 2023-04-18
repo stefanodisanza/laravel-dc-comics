@@ -1,19 +1,21 @@
-<form action="{{ route('comics.update', ['id' => $comic->id]) }}" method="POST">
+<form action="{{ route('comics.update', ['id' => $comic->id]) }}" method="POST" class="mt-4">
     @csrf
     @method('PUT')
-    <div>
-        <label for="title">Title:</label>
-        <input type="text" name="title" id="title" value="{{ old('title', $comic->title) }}">
+    <div class="mb-3">
+        <label for="title" class="form-label">Title:</label>
+        <input type="text" name="title" id="title" class="form-control" value="{{ old('title', $comic->title) }}">
     </div>
-    <div>
-        <label for="description">Description:</label>
-        <textarea name="description" id="description">{{ old('description', $comic->description) }}</textarea>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description:</label>
+        <textarea name="description" id="description" class="form-control">{{ old('description', $comic->description) }}</textarea>
     </div>
-    <div>
-        <label for="price">Price:</label>
-        <input type="number" name="price" id="price" value="{{ old('price', $comic->price) }}">
+    <div class="mb-3">
+        <label for="price" class="form-label">Price:</label>
+        <input type="number" name="price" id="price" class="form-control" value="{{ old('price', $comic->price) }}">
     </div>
-    <button type="submit">Update</button>
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a href="{{ route('comics.index') }}" class="btn btn-secondary">Torna indietro</a>
 </form>
 
-<a href="{{ route('comics.index') }}" class="btn btn-primary">Torna indietro</a>
+
+@vite('resources/js/app.js')

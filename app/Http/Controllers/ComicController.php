@@ -87,6 +87,7 @@ class ComicController extends Controller
         return redirect('/comics')->with('success', 'Fumetto modificato con successo!');
     }
 
+
     public function destroy($id)
     {
         // Trova il record del fumetto da eliminare

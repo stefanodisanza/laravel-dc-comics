@@ -1,6 +1,12 @@
 <head>
   <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+  <style>
+    img{
+      max-width: 100%;
+    }
+  </style>
 </head>
+
 @extends('layouts.app')
 
 @section('content')
