@@ -9,7 +9,7 @@ class ComicController extends Controller
 {
     public function index()
     {
-        $comics = Comic::all();
+        $comics = Comic::orderBy('created_at', 'desc')->get();
         return view('comics.index', ['comics' => $comics]);
     }
 
@@ -20,7 +20,6 @@ class ComicController extends Controller
 
         return view('comics.show', ['comic' => $comic, 'comics' => $comics]);
     }
-
 
     public function create()
     {
@@ -86,7 +85,6 @@ class ComicController extends Controller
 
         return redirect('/comics')->with('success', 'Fumetto modificato con successo!');
     }
-
 
     public function destroy($id)
     {
